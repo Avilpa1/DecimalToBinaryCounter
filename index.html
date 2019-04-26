@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Decimal to Binary</h2>
+
+<h1 id="decimal"></h1>
+
+<h1 id="binary"></h1>
+
+<button onclick="back()">Back</button>
+<button id="stop" onclick="stop()">Stop</button>
+<button onclick="forward()">Forward</button>
+
+<script>
+var i = 1
+var pause = false
+setInterval(function() { 
+	if(!pause) {
+      dec2bin(i)
+      i++
+    }
+}, 500);
+
+function dec2bin(dec){
+	var converted = (dec >>> 0).toString(2)
+	document.getElementById("decimal").innerHTML = dec
+	document.getElementById("binary").innerHTML = converted
+}
+
+function stop() {
+	if(pause === true) {
+    	pause = false
+        document.getElementById("stop").innerHTML = "Stop"
+        } else {
+        pause = true
+        document.getElementById("stop").innerHTML = "Start"
+        }
+}
+
+function back() {
+ dec2bin(i--)
+}
+
+function forward() {
+ dec2bin(i++)
+}
+</script>
+
+</body>
+</html>
